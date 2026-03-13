@@ -800,7 +800,7 @@
       <div class="card">
         <h2 class="sectionTitle">体重入力</h2>
         <div class="weightRow">
-          <input id="weightInput" type="number" step="0.1" placeholder="体重(kg) 例: 67.0">
+          <input id="weightInput" type="number" step="0.1" placeholder="体重(kg) 例: 60.0">
           <button class="primaryBtn" onclick="addWeight()">追加</button>
         </div>
         <div class="small" style="margin-top:10px;">※今日の最新体重で目標が更新されます</div>
@@ -991,7 +991,7 @@
     renderRemain();
   }
 
-  let target = { kcal:1710, protein:134, fat:54, carb:134 };
+  let target = { kcal:1500, protein:120, fat:48, carb:117 };
 
   function setTargetsByWeight(w){
     const kcal = w * 30 - 300;
@@ -1271,7 +1271,7 @@
 
     const latest = weightItems.length ? weightItems[weightItems.length - 1].kg : null;
     if (latest != null) setTargetsByWeight(latest);
-    else setTargetsByWeight(67);
+    else setTargetsByWeight(60);
 
     renderWeightChart();
   }
@@ -1421,7 +1421,7 @@
     if (p) p.textContent = `今日の水分：${totalMl} ml`;
     if (stat) stat.textContent = `${totalMl}ml`;
 
-    const latestW = weightItems.length ? weightItems[weightItems.length-1].kg : 67;
+    const latestW = weightItems.length ? weightItems[weightItems.length-1].kg : 60;
     const goalMl = Math.round(latestW * 35);
 
     const bar = document.getElementById("waterBar");
@@ -1916,7 +1916,7 @@
   document.getElementById("search").addEventListener("input", (e)=>renderGrid(e.target.value));
 
   renderDateUI();
-  setTargetsByWeight(67);
+  setTargetsByWeight(60);
   renderGrid("");
   refreshAll();
   loadRecent();
